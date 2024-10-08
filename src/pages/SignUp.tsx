@@ -4,11 +4,22 @@ import { Context } from "../contexts/Context";
 
 export const SignUp = () => {
 
-    const { name, age } = useContext(Context);
+    const { state, dispatch } = useContext(Context);
+
+    const handleChangeName = () => {
+        dispatch({
+            type: 'CHANGE_NAME',
+            payload: {
+                name: 'Pedro'
+            }
+        })
+    }
 
     return (
         <div>
-            Tela SignUp de {name} que tem {age} anos!
+            Tela SignUp de {state.user.name} que tem {state.user.age} anos!
+            <br />
+            <button onClick={handleChangeName}>Trocar nome para Pedro</button>
             <br />
             <Link to={'/exibir'}>Ir para ShowData</Link>
         </div>

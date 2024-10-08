@@ -4,11 +4,11 @@ import { Context } from "../contexts/Context";
 
 export const ShowData = () => {
 
-    const { age, name } = useContext(Context);
+    const { state, dispatch } = useContext(Context);
 
     return (
         <div>
-            Tela ShowData de {name}!
+            Tela ShowData de {state.user.name}!
             <br />
             <Link to={'/'}>Voltar para SignUp</Link>
         </div>
